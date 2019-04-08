@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "915216213731",
+    "firebase_url": "https://chatroom-2bd1d.firebaseio.com",
+    "project_id": "chatroom-2bd1d",
+    "storage_bucket": "chatroom-2bd1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915216213731:android:5440f98c582e862d",
+        "android_client_info": {
+          "package_name": "com.frictionhacks.chatbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915216213731-tsgrkv2m0j9qqhb9eekb3sa33jcqqv13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.frictionhacks.chatbox",
+            "certificate_hash": "34521938619e3f0d4d2739d20266a3265c9a3df1"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjouzq3y31xqjS_dkmS6Llcorsuz7f3K4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915216213731-1o2iuunnk4tv28j3trvvv4m30j8jmqe0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

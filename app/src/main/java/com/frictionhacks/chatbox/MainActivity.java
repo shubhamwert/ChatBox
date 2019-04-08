@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.frictionhacks.chatbox.Activity.ChatRoom;
 import com.frictionhacks.chatbox.Adapter.MainRecyclerAdapter;
 import com.frictionhacks.chatbox.DataModel.UserMainWord;
 import com.frictionhacks.chatbox.DataModel.UserMsgListContainer;
@@ -71,5 +73,10 @@ private void RemoveData(int i){
     @Override
     public void OnChatLongClick(View v, int position) {
 
+    }
+
+    public void next(View view) {
+        Intent i=new Intent(MainActivity.this, ChatRoom.class);
+        startActivity(i);
     }
 }
