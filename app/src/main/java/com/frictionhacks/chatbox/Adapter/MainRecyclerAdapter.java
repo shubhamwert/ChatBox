@@ -3,10 +3,13 @@ package com.frictionhacks.chatbox.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.frictionhacks.chatbox.DataModel.UserMainWord;
 import com.frictionhacks.chatbox.DataModel.UserMsgListContainer;
+import com.frictionhacks.chatbox.Interfaces.OnClickListeners;
 import com.frictionhacks.chatbox.R;
 
 import java.util.zip.Inflater;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder> {
     private UserMsgListContainer mdata;
+    private OnClickListeners onClickListeners;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,6 +49,11 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         return mdata.getUserMsgList().size();
     }
 
+    public void removeData(int i) {
+        mdata.removeUserChat(i);
+
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgContactPhoto;
         TextView tvName,tvMessage;
@@ -53,12 +62,29 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             imgContactPhoto=itemView.findViewById(R.id.user_row_iv_photo);
             tvName=itemView.findViewById(R.id.user_row_tv_name);
             tvMessage=itemView.findViewById(R.id.user_row_tv_last_message);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickListeners.OnChatClick(v,getAdapterPosition());
+
+                }
+            });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    onClickListeners.OnChatLongClick(v,getAdapterPosition());
+                    return true;
+                }
+            });
 
         }
     }
-    public void updateData(UserMsgListContainer data){
-        mdata.setUserMsgList(data.getUserMsgList());
+    public void updateData(UserMainWord data){
+        mdata.addUserChat(data);
         notifyDataSetChanged();
 
+    }
+    public void setOnClickListeners(OnClickListeners onClic){
+        onClickListeners=onClic;
     }
 }

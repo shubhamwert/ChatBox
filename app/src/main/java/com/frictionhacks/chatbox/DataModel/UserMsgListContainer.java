@@ -20,4 +20,12 @@ public class UserMsgListContainer {
     public UserMsgListContainer() {
         UserMsgList = new ArrayList<>();
     }
+    public void addUserChat(UserMainWord m){
+        UserMsgList.add(m);
+
+    }
+
+    public void removeUserChat(int i) {
+        UserMsgList.remove(i);
+    }
 }
