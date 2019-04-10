@@ -20,7 +20,12 @@ boolean b=false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        SignUpFragment signUpFragment=new SignUpFragment();
+        FragmentManager l=getSupportFragmentManager();
+        FragmentTransaction ft=l.beginTransaction();
+        ft.addToBackStack(null);
+        ft.add(R.id.fl_login_sign_options,signUpFragment);
+        ft.commit();
       change();
 
 
@@ -30,21 +35,21 @@ boolean b=false;
         change();
     }
     public void change() {
-      if (!b){ SignUpFragment signUpFragment=new SignUpFragment();
+      if (b){ SignUpFragment signUpFragment=new SignUpFragment();
         FragmentManager l=getSupportFragmentManager();
         FragmentTransaction ft=l.beginTransaction();
-        ft.addToBackStack(null);
-        ft.add(R.id.fl_login_sign_options,signUpFragment);
+
+        ft.replace(R.id.fl_login_sign_options,signUpFragment);
         ft.commit();
-      b=true;}
+      b=false;}
         else{
           SignInFragment signInFragment=new SignInFragment();
           FragmentManager l=getSupportFragmentManager();
           FragmentTransaction ft=l.beginTransaction();
-          ft.addToBackStack(null);
-          ft.add(R.id.fl_login_sign_options,signInFragment);
+
+          ft.replace(R.id.fl_login_sign_options,signInFragment);
           ft.commit();
-          b=false;
+          b=true;
 
       }
     }

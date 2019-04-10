@@ -10,21 +10,34 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.frictionhacks.chatbox.Activity.ChatRoom;
+import com.frictionhacks.chatbox.Activity.LoginActivity;
 import com.frictionhacks.chatbox.Adapter.MainRecyclerAdapter;
 import com.frictionhacks.chatbox.DataModel.UserMainWord;
 import com.frictionhacks.chatbox.DataModel.UserMsgListContainer;
 import com.frictionhacks.chatbox.Interfaces.OnClickListeners;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements OnClickListeners {
 UserMsgListContainer userMsgListContainer;
     MainRecyclerAdapter UserMainAdapter;
-
+FirebaseAuth firebaseAuth;
+FirebaseUser firebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseUser=firebaseAuth.getCurrentUser();
+        if (firebaseUser==null   ){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+            return;
+        }else{
+            String i=firebaseUser.getPhoneNumber();
+            Toast.makeText(this, ""+i, Toast.LENGTH_SHORT).show();
         AddData();
         RecyclerView rvContactList=findViewById(R.id.main_rv);
         LinearLayoutManager llmContactList=new LinearLayoutManager(getApplicationContext());
@@ -43,7 +56,7 @@ UserMsgListContainer userMsgListContainer;
                 Toast.makeText(MainActivity.this, "Chat long clicked", Toast.LENGTH_SHORT).show();
                 RemoveData(position);
             }
-        });
+        });}
 
     }
 
