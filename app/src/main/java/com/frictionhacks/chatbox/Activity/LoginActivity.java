@@ -1,16 +1,12 @@
 package com.frictionhacks.chatbox.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 
-import com.frictionhacks.chatbox.Fragment.SignInFragment;
 import com.frictionhacks.chatbox.Fragment.SignUpFragment;
 import com.frictionhacks.chatbox.R;
 
@@ -35,22 +31,12 @@ boolean b=false;
         change();
     }
     public void change() {
-      if (b){ SignUpFragment signUpFragment=new SignUpFragment();
+     SignUpFragment signUpFragment=new SignUpFragment();
         FragmentManager l=getSupportFragmentManager();
         FragmentTransaction ft=l.beginTransaction();
 
         ft.replace(R.id.fl_login_sign_options,signUpFragment);
         ft.commit();
-      b=false;}
-        else{
-          SignInFragment signInFragment=new SignInFragment();
-          FragmentManager l=getSupportFragmentManager();
-          FragmentTransaction ft=l.beginTransaction();
-
-          ft.replace(R.id.fl_login_sign_options,signInFragment);
-          ft.commit();
-          b=true;
-
-      }
+      b=false;
     }
 }
