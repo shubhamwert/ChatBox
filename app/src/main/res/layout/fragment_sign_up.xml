@@ -4,32 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.SignInFragment">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up"
-        android:layout_above="@+id/ll_sign"/>
+        android:layout_above="@+id/ll_sign"
+        android:text="@string/sign_up" />
 
     <LinearLayout
-        android:layout_margin="12dp"
         android:id="@+id/ll_sign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_margin="12dp"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/phone"/>
+                android:text="@string/phone" />
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_weight="1"
+                android:id="@+id/login_et_phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/login_et_phone"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -37,25 +41,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/otp"/>
+                android:text="@string/otp" />
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_weight="1"
+                android:id="@+id/ed_text_otp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/ed_text_otp"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
     </LinearLayout>
+
     <Button
+        android:id="@+id/bt_frag_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
         android:layout_alignParentBottom="true"
 
-        android:id="@+id/bt_frag_sign_up"
-        />
+        android:text="@string/submit" />
 
 </RelativeLayout>

@@ -9,7 +9,12 @@ public class UserMsgListContainer {
         UserMsgList = new ArrayList<>(userMsgList);
     }
 
+    public UserMsgListContainer() {
+        UserMsgList = new ArrayList<>();
+    }
+
     public ArrayList<UserMainWord> getUserMsgList() {
+        UserMsgList=new ArrayList<>();
         return UserMsgList;
     }
 
@@ -17,10 +22,7 @@ public class UserMsgListContainer {
         UserMsgList = userMsgList;
     }
 
-    public UserMsgListContainer() {
-        UserMsgList = new ArrayList<>();
-    }
-    public void addUserChat(UserMainWord m){
+    public void addUserChat(UserMainWord m) {
         UserMsgList.add(m);
 
     }

@@ -9,6 +9,9 @@ public class UserMainWord {
         this.mMessage = mMessage;
     }
 
+    public UserMainWord() {
+    }
+
     public String getmName() {
         return mName;
     }

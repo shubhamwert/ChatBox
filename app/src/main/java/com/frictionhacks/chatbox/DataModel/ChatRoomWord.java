@@ -10,7 +10,10 @@ public class ChatRoomWord {
     public ChatRoomWord(String mSender, String mReceiver) {
         this.mSender = mSender;
         this.mReceiver = mReceiver;
-        date=new Date().getTime();
+        date = new Date().getTime();
+    }
+
+    public ChatRoomWord() {
     }
 
     public String getmSender() {

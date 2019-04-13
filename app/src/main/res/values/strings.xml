@@ -13,4 +13,5 @@
     <string name="phone">Phone</string>
     <string name="otp">otp</string>
     <string name="submit">Submit</string>
+    <string name="add_contact">Add Contact</string>
 </resources>
